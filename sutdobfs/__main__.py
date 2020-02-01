@@ -9,7 +9,9 @@ from sutdobfs import providers
 
 
 class Obfuscator:
-    def obfuscate(self, source: typing.IO, output: typing.IO, provider):
+    def obfuscate(
+        self, source: typing.IO, output: typing.IO, provider: providers.Provider
+    ):
         output_tokens = []
         gatekeeper = gatekeepers.SafeGatekeeper()
         offset = 0
@@ -17,9 +19,11 @@ class Obfuscator:
         for token in tokenize.tokenize(source.readline):
             if token.type == tokenize.ENCODING:
                 encoding = token.string
+            """
             if token.type == tokenize.NAME and token.string[0].lower() == "f":
                 inner_source = io.StringIO()
                 self.obfuscate()
+            """
             if gatekeeper.read(token):
                 meme = provider.meme(token.string)
                 sub_offset = len(meme) - len(token.string)
