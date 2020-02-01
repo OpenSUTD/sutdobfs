@@ -1,7 +1,12 @@
 import hashlib
 
 
-class ConsistentProvider:
+class Provider:
+    def meme(self, name):
+        pass
+
+
+class ConsistentProvider(Provider):
     """
     This provider will assign memes based on the name of the identifier and nothing else.
     """
