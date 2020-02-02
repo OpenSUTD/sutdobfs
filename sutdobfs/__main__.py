@@ -111,7 +111,10 @@ def main():
         if str.isidentifier(line.strip())
     ]
 
-    provider = providers.ConsistentProvider(memes)
+    if args.get("random"):
+        provider = providers.RandomConsistentProvider(memes)
+    else:
+        provider = providers.ConsistentProvider(memes)
 
     obfs = Obfuscator()
 
