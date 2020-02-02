@@ -24,6 +24,8 @@ class SafeGatekeeper:
         elif self.__scope_state == ":":
             if token.type == tokenize.NEWLINE:
                 self.__scope_state = "local"
+            else:
+                self.__scope_state = "def"
         elif self.__scope_state == "local":
             if token.type == tokenize.INDENT:
                 self.indent_count += 1
