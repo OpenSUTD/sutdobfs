@@ -78,9 +78,7 @@ def main():
     )
 
     parser.add_argument(
-        "-d",
-        "--dictionary-file",
-        type=argparse.FileType("r"),
+        "--memes",
         required=False,
         help="custom dictionary file for retrieving replacement names in obfuscation",
     )
@@ -91,9 +89,21 @@ def main():
     output_file = args.get("o") or open(
         re.sub(r"\.py$", ".sutd.py", input_file.name), "w"
     )
-    dictionary_file = args.get("d") or io.StringIO(
-        pkgutil.get_data("sutdobfs", "memes.txt").decode("utf-8")
-    )
+
+    try:
+        builtin_dictionary_file = pkgutil.get_data(
+            "sutdobfs", "memes/" + args.get("memes")
+        )
+        dictionary_file = io.StringIO(builtin_dictionary_file.decode("utf-8"))
+    except FileNotFoundError:
+        try:
+            user_supplied_dictionary_file = open(args.get("memes"))
+            dictionary_file = user_supplied_dictionary_file
+        except FileNotFoundError:
+            # use default memes.txt
+            dictionary_file = io.StringIO(
+                pkgutil.get_data("sutdobfs", "memes/memes.txt").decode("utf-8")
+            )
 
     memes = [
         line.strip()
