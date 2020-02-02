@@ -4,8 +4,8 @@ import re
 import typing
 import pkgutil
 import io
-from sutdobfs import gatekeepers
-from sutdobfs import providers
+from . import gatekeepers
+from . import providers
 
 
 class Obfuscator:
