@@ -4,3 +4,6 @@
 **/.DS_Store
 venv
 .idea
+build
+dist
+*.egg-info
