@@ -91,12 +91,16 @@ def main():
     )
 
     try:
+        if args.get("memes") is None:
+            raise FileNotFoundError
         builtin_dictionary_file = pkgutil.get_data(
             "sutdobfs", "memes/" + args.get("memes")
         )
         dictionary_file = io.StringIO(builtin_dictionary_file.decode("utf-8"))
     except FileNotFoundError:
         try:
+            if args.get("memes") is None:
+                raise FileNotFoundError
             user_supplied_dictionary_file = open(args.get("memes"))
             dictionary_file = user_supplied_dictionary_file
         except FileNotFoundError:
