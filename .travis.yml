@@ -1,0 +1,13 @@
+language: python
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+install:
+  - pip install -e .
+before_script:
+  - pip install -r test_requirements.txt
+script:
+  - coverage run --source=sutdobfs -m unittest discover tests/unit
+after_success:
+  - coveralls

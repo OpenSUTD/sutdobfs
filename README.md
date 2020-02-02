@@ -1,4 +1,11 @@
 # sutdobfs
+
+[![Build Status](https://travis-ci.com/OpenSUTD/sutdobfs.svg?branch=master)](https://travis-ci.com/OpenSUTD/sutdobfs)
+[![PyPI version](https://badge.fury.io/py/sutdobfs.svg)](https://badge.fury.io/py/sutdobfs)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/sutdobfs)
+![license](https://img.shields.io/github/license/OpenSUTD/sutdobfs)
+[![Coverage Status](https://coveralls.io/repos/github/OpenSUTD/sutdobfs/badge.svg?branch=master)](https://coveralls.io/github/OpenSUTD/sutdobfs?branch=master)
+
 __a gift from a senior to the final batch of students taking the last round of Digital World in 2020__
 ## Singapore University of Technical Difficulties Obfuscator
 
