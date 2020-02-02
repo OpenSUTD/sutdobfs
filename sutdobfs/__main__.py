@@ -70,11 +70,18 @@ def main():
     )
 
     parser.add_argument(
-        "-r",
         "--random",
         action="store_true",
         required=False,
         help="makes the obfuscation process non deterministic",
+    )
+
+    parser.add_argument(
+        "--sequential",
+        "--seq",
+        action="store_true",
+        required=False,
+        help="ensures that all memes in the dictionary are used before recycling names",
     )
 
     parser.add_argument(
@@ -115,8 +122,12 @@ def main():
         if str.isidentifier(line.strip())
     ]
 
-    if args.get("random"):
+    if args.get("random") and args.get("sequential"):
+        provider = providers.RandomSequentialProvider(memes)
+    elif args.get("random"):
         provider = providers.RandomConsistentProvider(memes)
+    elif args.get("sequential"):
+        provider = providers.SequentialProvider(memes)
     else:
         provider = providers.ConsistentProvider(memes)
 
