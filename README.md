@@ -71,7 +71,7 @@ sutdobfs your_homework_file.py
 
 ![vocareum-obfs](.github/img/voca-3.png)
 
-This produces a new file in your workspace called `your_homework_file.sutd.py`, filled with glorious dank memes. Click on the workspace window on the left to let it refresh and open the file:
+This produces a new file in your workspace called `your_homework_file.sutd.py`, filled with glorious dank memes. Click on the workspace window on the left to let it refresh (if it doesn't, refresh the whole page cos Vocareum sucks) and open the file:
 
 ![vocareum-result](.github/img/voca-4.png)
 
